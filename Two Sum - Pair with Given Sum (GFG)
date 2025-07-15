@@ -1,0 +1,26 @@
+// Two Sum - Pair with Given Sum
+
+class Solution {
+  public:
+    bool twoSum(vector<int>& arr, int target) {
+        // code here
+        int n = arr.size();
+        if(n<2) return false;
+        
+        sort(arr.begin() ,arr.end());
+        
+        int l=0 , r=n-1 ,sum =0;
+        while(l<r){
+            sum = arr[l] + arr[r];
+            if(sum > target){
+                --r;
+            }else if(sum < target){
+                ++l;
+            }else{
+                return true;
+            }
+        }
+        return false;
+       
+    }
+};
